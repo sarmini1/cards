@@ -5,7 +5,7 @@ import React from 'react';
  * Props: card: {image, value, suit}
  * State: none
  * 
- * App ---> GameBoard ---> Card
+ * App ---> CardGame ---> Card
  */
 function Card({ card }) {//pass in only what we need
 

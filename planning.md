@@ -1,7 +1,7 @@
-App --> GameBoard ---> Card
+App --> CardGame ---> Card
 
 
-# GameBoard
+# CardGame
 
 Props:
 State: 

@@ -5,7 +5,7 @@ import React from 'react';
  * Props: none
  * State: none
  * 
- * App --> GameBoard ---> EndGameError
+ * App --> CardGame ---> EndGameError
  */
 function EndGameError(){
 

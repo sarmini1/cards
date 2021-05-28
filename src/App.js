@@ -1,17 +1,17 @@
 import './App.css';
-import GameBoard from './GameBoard';
+import CardGame from './CardGame';
 
 /**App
  * 
  * Props: none
  * State: none
  * 
- * App ---> GameBoard
+ * App ---> CardGame
  */
 
 function App() {
   return (
-    <GameBoard />
+    <CardGame />
   );
 }
 
