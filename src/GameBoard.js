@@ -5,7 +5,7 @@ import EndGameError from './EndGameError';
 
 const BASE_URL = "https://deckofcardsapi.com/api/deck/";
 
-/** GameBoard
+/** GameBoard --could change this to something more specific
  * 
  * Props:
  * State: 
@@ -31,12 +31,12 @@ function GameBoard() {
       const deckResult = await axios.get(`${BASE_URL}new/shuffle/?deck_count=1`);
       setDeckId(deckResult.data.deck_id);
     }
-    fetchDeckId();
+    fetchDeckId(); //could get more than just the id, response gives us back the first card as well
   }, []);
 
   //Adds new card to cards array
   function updateCards(newCard) {
-    setCards(cards => [...cards, newCard]);
+    setCards(cards => [...cards, newCard]); //don't need to make this a function
   }
 
   //Handles when new card button clicked-- if no cards, changes game status
@@ -45,16 +45,19 @@ function GameBoard() {
     if (cards.length === 52) {
       console.log("got to end game block");
       setGameEnded(true);
+      //return, could just use this to avoid needing the else
     }
     else {
+      //wrap await in a try/catch
       const newCardResponse = await axios.get(`${BASE_URL}${deckId}/draw/?count=1`);
+      // could check the card response to see if any cards are remaining and if not, throw error
       console.log("card response is", newCardResponse);
-      updateCards(newCardResponse.data.cards[0]);
+      updateCards(newCardResponse.data.cards[0]); //this may not need to be a function call itself
     }
   }
 
   const cardsToDisplay = cards.map(card => (
-    <Card card={card} key={card.code} />
+    <Card card={card} key={card.code} /> // could destructure the card properties to be more particular
   ));
 
   return (
@@ -64,10 +67,10 @@ function GameBoard() {
         {cardsToDisplay}
       </div>
       }
-      {gameEnded && <EndGameError />}
+      {gameEnded && <EndGameError />} 
     </div>
   )
-
+      // in the return above, could make the conditional rendering occur from a function instead 
 }
 
 export default GameBoard;

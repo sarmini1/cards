@@ -7,7 +7,7 @@ import React from 'react';
  * 
  * App ---> GameBoard ---> Card
  */
-function Card({ card }) {
+function Card({ card }) {//pass in only what we need
 
   console.log("card image is", card.image);
   return (<div>
